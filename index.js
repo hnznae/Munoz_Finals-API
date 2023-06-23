@@ -6,12 +6,12 @@ const express = require('express');
 // create an application with expressjs this create an express js app and stores it as app
 // app is our server
 const app = express();
-// const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const port = 4000;
 
 app.use(express.json());
 //express.json() allows us to handle the request's body and automatically parse the incoming JSON to a JS object we can access and manage
-// app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
 let users = [
 		{
@@ -162,16 +162,17 @@ app.post('/products/add',(req, res) => {
 	}
 });
 
-app.get('/products', (req, res) => {
+app.get('/products',  (req, res) => {
 	console.log(loggedUser)
-		res.send(products + "\n 200 OK.");
+		console.log(products)
+		res.send(products);
 
 });
 
 app.get('/products/active', (req, res) => {
 	console.log(loggedUser)
 		let activeProducts = products.filter((products) => products.isActive === true);
-		res.send(activeProducts + "\n 200 OK.");
+		res.send(activeProducts);
 
 });
 
@@ -180,7 +181,7 @@ app.get('/products/:index',(req,res) => {
 		console.log(req.params.index);
 		let number = parseInt(req.params.index);
 		console.log(products[number]);
-		res.send(products[number] + "\n 200 OK.");
+		res.send(products[number]);
 });
 
 app.put('/products/update/:index',(req,res) => {
@@ -213,7 +214,12 @@ app.put('/products/archive/:index',(req, res) => {
 		if(loggedUser.isAdmin === true) {
 		products[index].isActive = false;
 		res.send(`${products[index].name} is now Archived/Inactive. + \n 200 OK.`);
+
+
 	}
+	else {
+			res.send("403 Unauthorized Request.");
+		}
 });
 
 // orders
@@ -258,7 +264,7 @@ app.get('/users/order/', (req, res) => {
 
 	if(loggedUser.isAdmin === false) {
 		console.log('success');
-		res.send(loggedUser.order + "\n 200 OK.");
+		res.send(loggedUser.order);
 	}
 	else {
 		res.send("403 Unauthorized Request.")
@@ -296,7 +302,7 @@ app.get('/users/allorder', (req, res) => {
 	if(loggedUser.isAdmin === true) {
 		console.log('all success');
 			let allOrder = users.filter((users) => users.isAdmin === false);
-			res.send(allOrder + "\n 200 OK.")
+			res.send(allOrder)
 		}
 		
 	else {
