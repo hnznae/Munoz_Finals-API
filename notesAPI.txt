@@ -1,0 +1,23 @@
+Application Programming Interface (API)
+- an API is the part of the server responsible for receiving request and sending response
+
+Rest API
+	- Representation State Transfer. It is an architectural style for cumminication between application.
+
+What problem does it solve?
+	The need to separate user interface concerns of the client from the data storage concerns of the server.
+
+	Enables a decoupled server which can understand, process and respod client request without knowing the client state
+
+In REST, our request has all of the information that needs from out client
+
+	A REST API request:
+		it is usually dictated by the HTTP method. Through an HTTP method the action needed to be done is detremined.
+		A request contains additional information about the request: Headers
+
+		A body which contains data that needs to be sent to a server.
+		We can operatea and access resources through URL patch in a REST API, all the server needs from the client is already in the request and all a cliet needs from the server is in the response.
+
+Postman
+	It is a testing tool to test API endpoint and routes. It is a client with which we can create request from and receive our server/API
+

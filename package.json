@@ -1,0 +1,17 @@
+{
+  "name": "s04-api",
+  "version": "1.0.0",
+  "description": "intro to expressjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hanzen munoz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "i": "^0.3.7",
+    "install": "^0.13.0"
+  }
+}
